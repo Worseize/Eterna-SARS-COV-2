@@ -1,4 +1,5 @@
 let debugKoof = 1 / 2.6;
+let offsetX = 0;
 class Nucleo{
 	constructor(x, y, id, letter, size){
 		this.position = createVector(x, y);
@@ -16,17 +17,17 @@ class Nucleo{
 		}else if(this.letter === "C") {
 			fill(0, 255, 0);//GREEN CYTOSINE
 		}
-		ellipse(this.position.x, this.position.y, this.size, this.size);
+		ellipse(this.position.x + offsetX, this.position.y, this.size, this.size);
 		fill(0);
 		textSize(this.size);
 		if(this.letter === "A") {
-			text("A", this.position.x - this.size * debugKoof , this.position.y + this.size * debugKoof);
+			text("A", this.position.x - this.size * debugKoof + offsetX, this.position.y + this.size * debugKoof);
 		}else if(this.letter === "U") {
-			text("U", this.position.x - this.size * debugKoof, this.position.y + this.size * debugKoof);
+			text("U", this.position.x - this.size * debugKoof + offsetX, this.position.y + this.size * debugKoof);
 		}else if(this.letter === "G") {
-			text("G", this.position.x - this.size * debugKoof, this.position.y + this.size * debugKoof);
+			text("G", this.position.x - this.size * debugKoof + offsetX, this.position.y + this.size * debugKoof);
 		}else if(this.letter === "C") {
-			text("C", this.position.x - this.size * debugKoof, this.position.y + this.size * debugKoof);
+			text("C", this.position.x - this.size * debugKoof + offsetX, this.position.y + this.size * debugKoof);
 		}
 	}
 	changeLetter(){

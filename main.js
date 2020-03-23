@@ -1,15 +1,15 @@
 let
 nucleoArray = [],
 nucleoLastId,
-nucleoSize,
-nucleoText;
+nucleoSize = innerWidth / 150,
+nucleoText,
+memOffset;
 function preload() {
 
 }
 
 function setup() {
 	myCanvas = createCanvas((innerWidth), parseInt(innerHeight) - 45);
-	nucleoSize = innerWidth / 150;
 	nucleoLastId = 0;
 	nucleoArray = [];
 	nucleoText = userInput.value;
@@ -31,9 +31,8 @@ function draw() {
 
 }
 
-function resizeBody() {
-	setup();
-}
+/** MOUSE ITERATIONS **/
+
 function mouseClicked() {
 	for(let i = 0; i < nucleoArray.length; i++) {
 		if(
@@ -50,7 +49,18 @@ function mouseClicked() {
 
 }
 
+function mouseWheel(event) {
+	nucleoSize -= event.delta / 10;
+	setup();
+}
+function mousePressed() {
+	memOffset = mouseX - offsetX;
+}
+function mouseDragged() {
+	offsetX = mouseX - memOffset;
+}
 /** DOM **/
+
 let userInput = document.getElementById('userNucleoInput');
 userInput.addEventListener('change', userChangedRNA);
 function userChangedRNA(e) {
@@ -73,4 +83,9 @@ function changeUserInput() {
 	}
 	userInput.value = localText;
 	nucleoText = localText;
+}
+
+function resizeBody() {
+	nucleoSize = innerWidth / 150
+	setup();
 }
