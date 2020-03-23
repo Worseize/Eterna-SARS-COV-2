@@ -50,7 +50,9 @@ function mouseClicked() {
 }
 
 function mouseWheel(event) {
-	nucleoSize -= event.delta / 10;
+	if(nucleoSize - event.delta / 10 > 10) {
+		nucleoSize -= event.delta / 10;
+	}
 	setup();
 }
 function mousePressed() {
