@@ -36,8 +36,8 @@ function draw() {
 function mouseClicked() {
 	for(let i = 0; i < nucleoArray.length; i++) {
 		if(
-			mouseX > (nucleoArray[i].position.x - nucleoArray[i].size / 2) &&
-			mouseX < (nucleoArray[i].position.x + nucleoArray[i].size / 2) &&
+			mouseX - offsetX > (nucleoArray[i].position.x - nucleoArray[i].size / 2) &&
+			mouseX - offsetX < (nucleoArray[i].position.x + nucleoArray[i].size / 2) &&
 			mouseY > (nucleoArray[i].position.y - nucleoArray[i].size / 2) &&
 			mouseY < (nucleoArray[i].position.y + nucleoArray[i].size / 2)
 		) {
