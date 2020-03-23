@@ -9,7 +9,7 @@ function preload() {
 
 function setup() {
 	myCanvas = createCanvas((innerWidth), parseInt(innerHeight) - 45);
-	nucleoSize = innerWidth / 25;
+	nucleoSize = innerWidth / 150;
 	nucleoLastId = 0;
 	nucleoArray = [];
 	nucleoText = userInput.value;
